@@ -1,0 +1,41 @@
+.addUser, .updateUser, .deleteUser {
+    border: none;            
+    cursor: pointer;
+    background-color: white;
+}
+
+.addUser>button{
+    color:white;
+    background-image: linear-gradient(rgb(23, 121, 59),rgb(15, 227, 92));
+    padding: 8px 10px;
+    border:none;
+    border-radius:10px;
+    margin: 10px;
+}
+.updateUser>button{
+    color:white;
+    background-image: linear-gradient(rgb(44, 23, 121),rgb(15, 64, 227));
+    padding: 8px 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+.deleteUser>button{
+    color:white;
+    background-image: linear-gradient(rgb(121, 23, 23),rgb(227, 15, 15));
+    padding: 8px 10px;
+    border:none;
+    border-radius:10px;
+}
+td, th{
+    border-radius: 10px;
+    padding:5px;
+    min-width:2rem;
+    width: fit-content;
+    /* background-color: rgba(56, 54, 54);
+    color:white */
+}
+td:hover, th:hover{
+    /* background-color: #828282c0; */
+    
+}

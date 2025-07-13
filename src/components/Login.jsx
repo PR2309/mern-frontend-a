@@ -3,8 +3,8 @@ import axios from 'axios';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 
-// import { GoogleLogin } from '@react-oauth/google';
-// import { jwtDecode } from 'jwt-decode';
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
 
 const LoginForm = () => {
     const [email, setEmail] = useState("");
@@ -13,7 +13,7 @@ const LoginForm = () => {
     const [showPass2,setShowPass2] = useState(false);
     const [message,setMessage] = useState("");
     const navigate=useNavigate();
-    const API_URL = import.meta.env.VITE_API_URL;
+    const API_URL = import.meta.env.VITE_BACKEND_URL;
     const handleSubmit = async (e) => {
         const url = `${API_URL}/api/users/login`;
         e.preventDefault();
@@ -93,7 +93,7 @@ const LoginForm = () => {
                         <p style={{ textAlign: "center" }}>or</p>
 
                         <div style={{ display: "flex", justifyContent: "center" }}>
-                        {/* <GoogleLogin
+                        <GoogleLogin
                             onSuccess={(credentialResponse) => {
                                 console.log(credentialResponse);
                                 const decoded = jwtDecode(credentialResponse.credential);
@@ -111,7 +111,7 @@ const LoginForm = () => {
                                 setMessage("Google Login Failed");
                             }}
                             auto_select={true} // to auto login google loggedin users
-                        /> */}
+                        />
                         </div>
 
                         <p className="foot">Don't have an account?<Link to="/register">Sign&nbsp;Up</Link></p>

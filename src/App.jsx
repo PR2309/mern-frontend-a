@@ -1,56 +1,48 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
-import {ConditionalRendering1, ConditionalRendering2, ConditionalRendering3} from './components/ConditionalRendering';
-import { Functions1 } from './components/Functions';
-import { Hooks1_useState } from './components/Hooks';
-import CricketDashboard from './components/CricketDashboard';
-import RegisterationForm from './components/RegisterationForm';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import { Register1, Register2 } from './components/Register';
-
+import Login from './components/Login';
+import Product from './components/Product';
+import Products from './components/Products';
+import Orders from './components/Orders';
+import Users from './components/Users';
+import Admin from './components/Admin';
+import Order from './components/Order';
+import Home from './components/Home';
+import Cart from './components/Cart';
 
 function App() {
 
   return (
     <>
       <div className="App-Container">
+        <BrowserRouter>
         <h1 style={{backgroundColor:"orange"}}>MERN FRONTEND</h1>
+        <Link to="/home">Home</Link>
+        <Link to="/admin">Admin</Link>
+        <Link to="/register">Register</Link>
+        <Link to="/login">Login</Link>
+        <Routes>
+          <Route index element={<Product/>}/>
+          <Route path="/" element={<Product/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<Register1/>}/>
+          <Route path="/order" element={<Order/>}/>
+          <Route path="/cart" element={<Cart/>}/>
+          <Route path="/home" element={<Home/>}/>
+          <Route path="/admin" element={<Admin/>}>
+            <Route index element={<Users/>}/>
+            <Route path="products" element={<Products/>}/>
+            <Route path="orders" element={<Orders/>}/>
+          </Route>
+        </Routes>
+        <h1>This is Footer</h1>
+      </BrowserRouter>
       </div>
-      {/* <ConditionalRendering1 age={21} /> */}
-      {/* <ConditionalRendering2 age={21} /> */}
-      {/* <ConditionalRendering3 age={21} /> */}
-      {/* <Functions1 /> */}
-      {/* <Hooks1_useState/> */}
-      {/* <Register1/> */}
-      {/* <Register2/> */}
-
-      {/* Assignments */}
-      {/* <CricketDashboard/> */}
-      <RegisterationForm/>
-      <h1>This is Footer</h1>
     </>
   );
 };
-
-const Home1 = () => {
-  let name = "Name ABC";
-  return (
-    <>
-      <h1>Hello {name}</h1>
-      <p>Welcome to the home page!</p>
-    </>
-  );
-};
-const Home2 = (props) => {
-  let name = "Name ABC";
-  return (
-    <>
-      <h1 style={{backgroundColor:"red",color:"blue"}}>Hello {name}, you are {props.age} years old.</h1>
-      <p>Welcome to the home page!</p>
-    </>
-  );
-};
-
-export { Home1, Home2 };
 export default App;
